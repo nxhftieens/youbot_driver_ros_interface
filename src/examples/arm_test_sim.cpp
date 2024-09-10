@@ -9,7 +9,7 @@ using namespace std;
 const double PI = 3.14159265358979323846;
 
 int main(int argc, char **argv) {
-	ros::init(argc, argv, "arm_test");
+	ros::init(argc, argv, "arm_test_sim");
 	ros::NodeHandle nh;
 	ros::Publisher armPosPublisher;
     ros::Publisher gripperPosPublisher;
