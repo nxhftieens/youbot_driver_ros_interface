@@ -64,6 +64,8 @@
 
 using namespace std;
 
+const double PI = 3.14159265358979323846;
+
 int main(int argc, char **argv) {
 
 	ros::init(argc, argv, "youbot_arm_test");
@@ -74,7 +76,7 @@ int main(int argc, char **argv) {
 	armPositionsPublisher = n.advertise<brics_actuator::JointPositions > ("arm_1/arm_controller/position_command", 1);
 	gripperPositionPublisher = n.advertise<brics_actuator::JointPositions > ("arm_1/gripper_controller/position_command", 1);
 
-	ros::Rate rate(20); //Hz
+	ros::Rate rate(50); //Hz
 	double readValue;
 	static const int numberOfArmJoints = 5;
 	static const int numberOfGripperJoints = 2;
@@ -91,14 +93,14 @@ int main(int argc, char **argv) {
 
 		// ::io::base_unit_info <boost::units::si::angular_velocity>).name();
 		for (int i = 0; i < numberOfArmJoints; ++i) {
-			cout << "Please type in value for joint " << i + 1 << endl;
+			cout << "Please type in value for joint (deg) " << i + 1 << endl;
 			cin >> readValue;
 
 			jointName.str("");
 			jointName << "arm_joint_" << (i + 1);
 
 			armJointPositions[i].joint_uri = jointName.str();
-			armJointPositions[i].value = readValue;
+			armJointPositions[i].value = readValue * PI / 180.0;
 
 			armJointPositions[i].unit = boost::units::to_string(boost::units::si::radians);
 			cout << "Joint " << armJointPositions[i].joint_uri << " = " << armJointPositions[i].value << " " << armJointPositions[i].unit << endl;

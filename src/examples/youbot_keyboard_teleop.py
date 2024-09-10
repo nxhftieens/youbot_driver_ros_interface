@@ -102,7 +102,7 @@ if __name__=="__main__":
 
                 print(vels(speed,turn))
                 if (status == 14):
-                    print msg
+                    print(msg)
                 status = (status + 1) % 15
             else:
                 x = 0

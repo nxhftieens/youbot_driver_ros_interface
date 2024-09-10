@@ -59,6 +59,16 @@ add_executable(youbot_arm_test
 )
 target_link_libraries(youbot_arm_test ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${youbot_driver_LIBRARIES})
 
+add_executable(arm_test 
+    src/examples/arm_test.cpp 
+)
+target_link_libraries(arm_test ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${youbot_driver_LIBRARIES})
+
+add_executable(base_test 
+    src/examples/base_test.cpp 
+)
+target_link_libraries(base_test ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${youbot_driver_LIBRARIES})
+
 add_executable(youbot_2nd_arm_test 
 	src/examples/youbot_2nd_arm_test.cpp 
 )
