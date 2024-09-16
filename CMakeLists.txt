@@ -74,6 +74,11 @@ add_executable(base_test
 )
 target_link_libraries(base_test ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${youbot_driver_LIBRARIES})
 
+add_executable(kinematics 
+    src/examples/kinematics.cpp 
+)
+target_link_libraries(kinematics ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${youbot_driver_LIBRARIES})
+
 add_executable(youbot_2nd_arm_test 
 	src/examples/youbot_2nd_arm_test.cpp 
 )
